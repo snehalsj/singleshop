@@ -1,0 +1,8 @@
+project id singleshop-17
+
+Here is your client ID
+849070167601-o8lu4ol1ncc6hrkdk26vhtc0elqf8o8g.apps.googleusercontent.com
+
+
+Here is your client secret
+YRzjtti0CXTeYEbrAoJtCEYn

@@ -4,11 +4,55 @@
   <meta charset="utf-8">
   <title>Singleshop</title>
   <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
+
+<meta name="google-signin-client_id" content="849070167601-o8lu4ol1ncc6hrkdk26vhtc0elqf8o8g.apps.googleusercontent.com">
+
+  <script>
+
+    function onLoadCallback() {
+
+      console.log('onLoadCallback');
+      gapi.load('auth2', function() {
+        gapi.auth2.init({
+            client_id: '849070167601-o8lu4ol1ncc6hrkdk26vhtc0elqf8o8g.apps.googleusercontent.com',
+            //This two lines are important not to get profile info from your users
+            fetch_basic_profile: false,
+            scope: 'email'
+        });        
+      });     
+    }
+
+    function signIn() {
+        console.log('I am passing signIn')
+
+        var auth2 = gapi.auth2.getAuthInstance();         
+          // Sign the user in, and then retrieve their ID.
+          auth2.signIn().then(function() {
+            console.log(auth2.currentUser.get().getId());  
+
+            var profile = auth2.currentUser.get().getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+
+
+
+          });         
+     }
+
+</script>
+
 </head>
 <body>
+   
   <app-root>Loading...</app-root>
 </body>
 </html>

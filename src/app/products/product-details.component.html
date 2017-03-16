@@ -1,0 +1,40 @@
+<div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead"></p>
+                <div class="list-group">
+                    <a href="/electronics" class="list-group-item">Electronics</a>
+                    <a href="/books" class="list-group-item">Books</a>
+                    <a href="/others" class="list-group-item">Others</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+
+              
+              <div *ngIf="product">
+                <h3>{{ product.ProductName }}</h3>
+                <div> <img src="./../assets/images/{{product.productId}}.jpg" width="320" height ="150" alt=""></div>
+                <div>
+                  <label>Description : </label>{{product.ProductDescription}}
+                </div>
+                <div>
+                  <label>Price : </label>{{product.Price}} {{product.currency}}
+                </div>
+                <div>
+                  <label>Rating : </label>{{product.Rating}}
+                </div>
+                <div>
+                  <label>Review : </label>{{product.Review}}
+                </div>
+                 <div>
+                  <span></span>
+                </div>
+                <p>
+                  <button (click)="gotoProducts()">View Other Products</button>
+                </p>
+              </div>
+            </div>
+        </div>
+</div>
